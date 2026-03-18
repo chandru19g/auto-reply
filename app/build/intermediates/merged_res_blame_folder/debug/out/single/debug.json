@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.autoreply.app-merged_res-47:/drawable-v26_ic_launcher.xml.flat",
+        "source": "com.autoreply.app-main-49:/drawable-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.autoreply.app-merged_res-47:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.autoreply.app-main-49:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.autoreply.app-merged_res-47:/drawable_ic_launcher.xml.flat",
+        "source": "com.autoreply.app-main-49:/drawable/ic_launcher.xml"
+    }
+]

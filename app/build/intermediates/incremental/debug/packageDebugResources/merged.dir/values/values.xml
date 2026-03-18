@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#F5F5FA</color>
+    <color name="background_dark">#131316</color>
+    <color name="primary">#4355B9</color>
+    <string name="app_name">Auto-Reply</string>
+    <style name="Theme.AutoReply" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/background</item>
+    </style>
+</resources>

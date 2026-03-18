@@ -1,0 +1,9 @@
+R_DEF: Internal format may change without notice
+local
+color background
+color background_dark
+color primary
+drawable ic_launcher
+drawable ic_launcher_foreground
+string app_name
+style Theme.AutoReply
