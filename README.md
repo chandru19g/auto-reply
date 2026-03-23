@@ -16,6 +16,40 @@ All reply text is configurable per mode in Settings. No data is sent to any serv
 - Android 7.0 (API 24) or higher.
 - For WhatsApp auto-reply: enable **Notification access** for this app in system Settings, and ensure WhatsApp notifications include the reply action.
 
+### Build from the terminal (`./gradlew`)
+
+This project uses **Android Gradle Plugin 8.2** and **Gradle 8.10**. You must use a **JDK 17** (recommended) or at least **JDK 11** — **Java 8 will not work.**
+
+**macOS / Linux**
+
+```bash
+# Point JAVA_HOME at JDK 17 (adjust path if you use another install)
+export JAVA_HOME=$(/usr/libexec/java_home -v 17 2>/dev/null || echo "$JAVA_HOME")
+./gradlew assembleRelease
+```
+
+If `java_home` finds nothing, install a JDK 17 (e.g. [Temurin](https://adoptium.net/) or Android Studio’s bundled JBR), then set `JAVA_HOME` to that folder.
+
+**Windows (PowerShell)**
+
+```powershell
+$env:JAVA_HOME = "C:\Program Files\Eclipse Adoptium\jdk-17.x.x-hotspot"
+.\gradlew.bat assembleRelease
+```
+
+**Using Android Studio’s JDK (macOS example)**
+
+```bash
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
+./gradlew assembleRelease
+```
+
+### “App not installed” / “package name is invalid” when installing APK
+
+- **Release APK must be signed.** This project signs **release** with the **debug keystore** for local installs (see `app/build.gradle.kts`). For Play Store, configure a real `signingConfigs.release` and do not commit secrets.
+- **Uninstall any older build** with the same app id (`com.autoreply.app`) if signatures differ (e.g. old unsigned vs new signed).
+- Prefer installing from: `app/build/outputs/apk/release/app-release.apk` (or use **assembleDebug** and install the debug APK from `outputs/apk/debug/`).
+
 ## How to run
 
 1. Open the project in Android Studio (File → Open → select the project folder).

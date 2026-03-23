@@ -22,6 +22,10 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            // APKs must be signed to install. Unsigned/mis-signed release builds often show
+            // "App not installed" or "package name is invalid" on some devices.
+            // For local testing only — use your own release keystore for Play Store uploads.
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
