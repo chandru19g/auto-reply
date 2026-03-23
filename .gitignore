@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Android local environment
+local.properties
+
+# Android/Java/Kotlin build artifacts
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+captures/
+outputs/
+
+# IDE
+.idea/
+*.iml
+
+# Keystore / signing
+*.jks
+*.keystore
+*.p12
+*.pem
+
+# Logs
+*.log
