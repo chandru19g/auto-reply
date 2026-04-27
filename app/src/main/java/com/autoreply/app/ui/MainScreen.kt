@@ -31,6 +31,7 @@ import androidx.compose.material.icons.rounded.People
 import androidx.compose.material.icons.rounded.PowerSettingsNew
 import androidx.compose.material.icons.rounded.ReceiptLong
 import androidx.compose.material.icons.rounded.Info
+import androidx.compose.material.icons.rounded.Troubleshoot
 import androidx.compose.material.icons.rounded.Warning
 import androidx.compose.material.icons.rounded.Work
 import androidx.compose.material3.AlertDialog
@@ -75,6 +76,7 @@ fun MainScreen(
     onOpenWhitelist: () -> Unit,
     sessionLogViewModel: SessionLogViewModel,
     onOpenSessionLog: () -> Unit,
+    onOpenDiagnostics: () -> Unit,
     onOpenAbout: () -> Unit,
     snackbarHostState: SnackbarHostState
 ) {
@@ -247,6 +249,15 @@ fun MainScreen(
                     subtitle = if (appState.activeMode == Mode.OFF) "Turn on a mode to start tracking"
                     else "${sessionEvents.size} event${if (sessionEvents.size == 1) "" else "s"} in this session",
                     onClick = onOpenSessionLog
+                )
+                SettingsDivider()
+                SettingsNavRow(
+                    icon = Icons.Rounded.Troubleshoot,
+                    iconBg = MaterialTheme.colorScheme.errorContainer,
+                    iconTint = MaterialTheme.colorScheme.error,
+                    title = "Diagnostics",
+                    subtitle = "Check notification, battery and permission status",
+                    onClick = onOpenDiagnostics
                 )
                 SettingsDivider()
                 SettingsNavRow(

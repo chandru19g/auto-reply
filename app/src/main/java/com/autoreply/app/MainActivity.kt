@@ -22,6 +22,7 @@ import com.autoreply.app.data.ModeRepository
 import com.autoreply.app.data.SessionLogPreferences
 import com.autoreply.app.data.WhitelistPreferences
 import com.autoreply.app.ui.AboutScreen
+import com.autoreply.app.ui.DiagnosticsScreen
 import com.autoreply.app.ui.MainScreen
 import com.autoreply.app.ui.MainViewModel
 import com.autoreply.app.ui.RequestPermissionsIfNeeded
@@ -58,6 +59,7 @@ class MainActivity : ComponentActivity() {
                     val onOpenSettings = remember(navController) { { navController.navigate("settings", navOptions) } }
                     val onOpenWhitelist = remember(navController) { { navController.navigate("whitelist", navOptions) } }
                     val onOpenSessionLog = remember(navController) { { navController.navigate("sessionlog", navOptions) } }
+                    val onOpenDiagnostics = remember(navController) { { navController.navigate("diagnostics", navOptions) } }
                     val onOpenAbout = remember(navController) { { navController.navigate("about", navOptions) } }
                     val onBack: () -> Unit = remember(navController) {
                         { navController.popBackStack(); Unit }
@@ -80,6 +82,7 @@ class MainActivity : ComponentActivity() {
                                 onOpenWhitelist = onOpenWhitelist,
                                 sessionLogViewModel = sessionLogViewModel,
                                 onOpenSessionLog = onOpenSessionLog,
+                                onOpenDiagnostics = onOpenDiagnostics,
                                 onOpenAbout = onOpenAbout,
                                 snackbarHostState = snackbarHostState
                             )
@@ -95,6 +98,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("about") {
                             AboutScreen(onBack = onBack)
+                        }
+                        composable("diagnostics") {
+                            DiagnosticsScreen(onBack = onBack)
                         }
                     }
                 }
